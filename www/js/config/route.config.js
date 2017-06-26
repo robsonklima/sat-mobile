@@ -4,8 +4,8 @@ angular.module("app").config(function ($routeProvider, $httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $routeProvider.when("/", {
-       templateUrl: "views/home.html",
-       controller: "homeCtrl"
+       templateUrl: "views/login.html",
+       controller: "loginCtrl"
     });
     
     $routeProvider.when("/login", {

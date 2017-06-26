@@ -1,4 +1,4 @@
-angular.module("app").factory("osService", function($http, constants) {
+app.factory("osService", function($http, constants) {
 
     var _find = function() {
         return [{ 
