@@ -1,0 +1,28 @@
+<div class="main-nav">
+    <div class="left-child"><a href="#/home"><h5>Voltar</a></h5></div>
+    <div class="center-child"><h5>Mapa de Chamados</h5></div>
+</div>
+
+<div class="separator"></div>
+
+<div class="container">
+	<div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+            <div class="alert alert-danger" ng-show="errors.length > 0 && !loading">
+                <p ng-repeat="error in errors"><strong>Oops!</strong> {{error.details}}</p>
+            </div>
+        </div>
+        
+        <div id="map_canvas" ng-if="errors.length == 0">
+            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" bounds="map.bounds">
+                <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="onMarkerClicked" options="'options'" events="markersEvents">
+                    <ui-gmap-windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+                        <div>
+                            <p ng-non-bindable class="map-title">{{ title }}</p>
+                        </div>
+                    </ui-gmap-windows>
+                </ui-gmap-markers>
+            </ui-gmap-google-map>
+        </div>
+	</div>
+</div>

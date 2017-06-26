@@ -1,0 +1,43 @@
+<div class="main-nav">
+    <div class="center-child"><h5>SAT Mobile</h5></div>
+</div>
+
+<div class="separator"></div>
+
+<div class="container">
+   <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+         <div class="list-group table-of-contents">
+            <a class="list-group-item list-group-item-single" href="#/chamados-lista"
+               ng-class="{ 'disabled': !isConnected || !myLatitude || !myLongitude }">
+                Meus Chamados <span class="badge">4</span>
+            </a>
+            <a class="list-group-item list-group-item-single" href="#/chamados-mapa"
+               ng-class="{ 'disabled': !isConnected || !myLatitude || !myLongitude }">Mapa de Chamados</a>
+            <a class="list-group-item list-group-item-single"
+               ng-class="{ 'disabled': !isConnected }">
+                Mensagens <span class="badge">2</span>
+            </a>
+            <a class="list-group-item list-group-item-single"
+               ng-class="{ 'disabled': !isConnected }">Indicadores</a>
+            <a class="list-group-item list-group-item-single"
+               ng-class="{ 'disabled': !isConnected }">Laudo Técnico</a>
+            <a class="list-group-item list-group-item-single"
+               ng-class="{ 'disabled': !isConnected }">Relatório de Instalação</a>
+            <a class="list-group-item list-group-item-single" href="#/login">Sair</a>
+         </div>
+         <div class="center-text backup-top">
+            <p class="text-default" ng-if="myLatitude && myLongitude">
+              Localização: Lat {{ myLatitude | number:4 }}, Lon {{ myLongitude | number:4 }}
+            </p>
+            <p class="text-danger" ng-if="!myLatitude && !myLongitude">
+              Status do GPS: Conectando <i class="fa fa-spinner fa-spin fa-fw"></i>
+            </p>
+            <p ng-class="{'text-default': isConnected, 'text-danger': !isConnected}">
+              Status da Rede: {{ isConnected ? 'Conectado' : "Conectando" }} 
+              <i class="fa fa-spinner fa-spin fa-fw" ng-show="!isConnected"></i>
+            </p>
+            <p class=""></p>
+        </div>
+   </div>
+</div>

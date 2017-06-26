@@ -1,0 +1,40 @@
+<div class="container">
+   <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+         <div class="login-form">
+             <form name="form">
+                <h5 class="login-title">SAT Mobile</h5>
+                <div class="form-group">
+                   <input class="form-control" type="text" ng-model="user.email" name="email" accept=""
+                          placeholder="Email" ng-required="true">
+                   <div ng-show="form.email.$dirty" ng-messages="form.email.$error" class="login-message">
+                       <p class="help-block-error" ng-message="required">Digite seu e-mail</p>
+                   </div>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" ng-model="user.password" name="password"
+                          placeholder="Senha" ng-required="true">
+                    <div ng-show="form.password.$dirty" ng-messages="form.password.$error" class="login-message">
+                       <p class="help-block-error" ng-message="required">Digite sua senha</p>
+                   </div>
+                </div>
+                <p class="text-danger login-error" ng-show="error">{{ error }}</p>
+                <button type="button" class="btn btn-primary btn-block btn-login" ng-click="login(user)" 
+                    ng-disabled="form.$invalid || loading">Entrar</button>
+                <a href="#" class="btn btn-link btn-login-link">Criar uma Conta</a>
+             </form>
+         </div> 
+         <div ng-show="loading" class="loading">
+            <div class="loading-container">
+                <div class="loading-content">
+                    <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+                    
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+          
+        
+      </div>
+   </div>
+</div>

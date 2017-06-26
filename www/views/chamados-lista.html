@@ -1,0 +1,25 @@
+<div class="main-nav">
+    <div class="left-child"><a href="#/home"><h5>Voltar</a></h5></div>
+    <div class="center-child"><h5>Meus Chamados</h5></div>
+</div>
+
+<div class="separator"></div>
+
+<div class="container">
+   <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+        <div class="alert alert-dismissible alert-danger" ng-show="errors.length > 0 && !loading">
+            <p ng-repeat="error in errors"><strong>Oops!</strong> {{error.details}}</p>
+        </div>
+        
+        <div class="list-group table-of-contents">
+            <a href="#/chamado" class="list-group-item" ng-repeat="order in orders">
+                <h4 class="list-group-item-heading">{{order.os}} <span class="label label-success">{{order.sla}}</span></h4>
+                <p class="list-group-item-text">{{order.formattedAddress}}</p>
+                <p class="list-group-item-text">{{order.distance}} {{order.duration}}</p>
+                <p class="list-group-item-text">Corretiva {{order.limite}}</p>
+            </a>
+        </div>
+      </div>
+   </div>
+</div>
