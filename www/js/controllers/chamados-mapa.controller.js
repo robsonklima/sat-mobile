@@ -1,7 +1,7 @@
 app.controller("chamadosMapaCtrl", function ($scope, $rootScope, $cordovaGeolocation, geoLocationService, osService) {
     $scope.options = { scrollwheel: false };
-    var posOptions = {timeout: 20000, enableHighAccuracy: true};
-    $scope.map = { center: { latitude: null, longitude: null } };
+    var posOptions = { timeout: 20000, enableHighAccuracy: true };
+    $scope.map = { center: { latitude: null, longitude: null }, fullscreenControl: false };
     $scope.loading = true;
     $scope.errors = [];
     

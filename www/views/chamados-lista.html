@@ -31,11 +31,9 @@
                 <h4 class="list-group-item-heading">
                     {{order.os}} 
                     <span class="label" 
-                          ng-class="{ 
-                            'label-success' : order.sla_status == 'Dentro do Prazo', 
-                            'label-danger' : order.sla_status == 'Fora do Prazo',
-                            'label-warning' : order.sla_status == 'Próximo do Prazo'
-                          }">
+                          ng-class="{ 'label-success' : order.sla_status == 'Dentro do Prazo', 
+                                      'label-danger' : order.sla_status == 'Fora do Prazo',
+                                      'label-warning' : order.sla_status == 'Próximo do Prazo' }">
                         {{order.sla_status}}
                     </span>
                 </h4>
