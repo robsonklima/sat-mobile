@@ -1,6 +1,6 @@
 <div class="main-nav">
     <div class="left-child"><a href="#/home"><h5>Voltar</a></h5></div>
-    <div class="center-child"><h5>Meus Chamados</h5></div>
+    <div class="center-child"><h5>Lista de Chamados</h5></div>
 </div>
 
 <div class="separator"></div>
@@ -8,16 +8,43 @@
 <div class="container">
    <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-        <div class="alert alert-dismissible alert-danger" ng-show="errors.length > 0 && !loading">
-            <p ng-repeat="error in errors"><strong>Oops!</strong> {{error.details}}</p>
+        <div class="btn-group btn-group-justified">
+          <a href="#/chamados-lista" class="btn btn-default" ng-disabled="true">Lista</a>
+          <a href="#/chamados-mapa" class="btn btn-default">Mapa</a>
         </div>
         
+        <div class="alert alert-danger" ng-show="errors.length > 0 && !loading">
+            <p ng-repeat="error in errors"><strong>Oops!</strong> {{error.details}}</p>
+        </div>
+
+        <div ng-show="loading" class="loading">
+            <div class="loading-content">
+                <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+          
+        <br/>
+
         <div class="list-group table-of-contents">
             <a href="#/chamado" class="list-group-item" ng-repeat="order in orders">
-                <h4 class="list-group-item-heading">{{order.os}} <span class="label label-success">{{order.sla}}</span></h4>
+                <h4 class="list-group-item-heading">
+                    {{order.os}} 
+                    <span class="label" 
+                          ng-class="{ 
+                            'label-success' : order.sla_status == 'Dentro do Prazo', 
+                            'label-danger' : order.sla_status == 'Fora do Prazo',
+                            'label-warning' : order.sla_status == 'Próximo do Prazo'
+                          }">
+                        {{order.sla_status}}
+                    </span>
+                </h4>
                 <p class="list-group-item-text">{{order.formattedAddress}}</p>
                 <p class="list-group-item-text">{{order.distance}} {{order.duration}}</p>
-                <p class="list-group-item-text">Corretiva {{order.limite}}</p>
+                <p class="list-group-item-text">
+                    Intervenção: {{ order.intervencao }}, 
+                    Limite: {{order.sla_limite}}
+                </p>
             </a>
         </div>
       </div>

@@ -1,12 +1,9 @@
 app.controller("chamadosMapaCtrl", function ($scope, $rootScope, $cordovaGeolocation, geoLocationService, osService) {
     $scope.options = { scrollwheel: false };
+    var posOptions = {timeout: 20000, enableHighAccuracy: true};
     $scope.map = { center: { latitude: null, longitude: null } };
-    $scope.markers = [];
-    $scope.places = osService.find();
     $scope.loading = true;
     $scope.errors = [];
-    
-    var posOptions = {timeout: 20000, enableHighAccuracy: true};
     
     document.addEventListener("deviceready", function () {
       $cordovaGeolocation.getCurrentPosition(posOptions).then(function(position) {
@@ -15,7 +12,9 @@ app.controller("chamadosMapaCtrl", function ($scope, $rootScope, $cordovaGeoloca
           
           $scope.map = { center: { latitude: myLat, longitude: myLng }, zoom: 10 };
           
-          $scope.markers.push({ id: 9999, latitude: $rootScope.myLatitude, longitude: $rootScope.myLongitude, 
+          $scope.places = osService.find();
+          $scope.markers = [];
+          $scope.markers.push({ id: 9999, latitude: myLat, longitude: myLng, 
             title: "Minha Localização", "icon":"http://www.robsonlima.com.br/google-icons/car/4.png" });
           
           angular.forEach($scope.places, function(value, key) {

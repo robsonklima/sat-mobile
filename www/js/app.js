@@ -3,7 +3,8 @@ var app = angular.module("app", ["ngRoute", "ngCookies", "ngMessages", "ngMateri
     
     document.addEventListener("deviceready", function () {
         $interval.cancel($rootScope.locationInterval);
-        $rootScope.locationInterval = $interval(getLocation, 15000);
+        $rootScope.locationInterval = $interval(getLocation, 60000);
+        getNetwork();
         
         function getLocation() {
             var posOptions = { timeout: 20000, enableHighAccuracy: true };
@@ -18,8 +19,6 @@ var app = angular.module("app", ["ngRoute", "ngCookies", "ngMessages", "ngMateri
                 $rootScope.myLongitude = null;
             });
         }
-        
-        getNetwork();
         
         function getNetwork() {
             $rootScope.isConnected = $cordovaNetwork.isOnline();

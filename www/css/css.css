@@ -19,8 +19,16 @@ html {
     z-index: 1;
 }
 
+.map-buttons {
+    z-index: 2;
+}
+
 .map-title {
     text-align: center;
+}
+
+.gm-style-mtc {
+  display: none;
 }
 
 .angular-google-map-container {
@@ -47,6 +55,12 @@ html {
 
 .login-form {
     margin-top: 61%;
+}
+
+@media (min-width: 700px), handheld and (orientation: landscape) { 
+    .login-form {
+        margin-top: 12%;
+    }
 }
 
 .btn-login {
@@ -179,4 +193,17 @@ html {
 
 .separator {
     height: 84px;
+}
+
+.tab-title {
+    width: 100%;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+md-content {
+    background-color: white;
+    margin-top: -12px;
 }

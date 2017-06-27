@@ -8,6 +8,11 @@
 <div class="container">
 	<div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+            <div class="btn-group btn-group-justified map-buttons">
+                <a href="#/chamados-lista" class="btn btn-default">Lista</a>
+              <a href="#/chamados-mapa" class="btn btn-default" ng-disabled="true">Mapa</a>
+            </div>
+            
             <div class="alert alert-danger" ng-show="errors.length > 0 && !loading">
                 <p ng-repeat="error in errors"><strong>Oops!</strong> {{error.details}}</p>
             </div>
