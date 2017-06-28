@@ -6,6 +6,18 @@ html {
     margin-top: 20%;
 }
 
+.label {
+    line-height: 20px !important;
+}
+
+.list-group-item-text {
+    margin-top: 8px;
+}
+
+.order {
+    color: silver;
+}
+
 #map_canvas {
     height: 92%;
     width: 100%;
@@ -29,10 +41,6 @@ html {
 
 .gm-style-mtc {
   display: none;
-}
-
-.gm-style > div:nth-child(10){
-  display:none;
 }
 
 .angular-google-map-container {
@@ -166,7 +174,7 @@ html {
     position: relative;
 }
 
-.label-warning, .label-danger, .label-success {
+.label-right {
     float: right;
     margin-top: 0px;
     padding-top: 5px;
@@ -197,6 +205,10 @@ html {
 
 .separator {
     height: 84px;
+}
+
+md-select-menu {
+    padding-top: 10px;
 }
 
 .tab-title {

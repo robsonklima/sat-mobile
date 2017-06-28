@@ -1,7 +1,14 @@
 angular.module("app").controller("chamadoCtrl",
-  function ($timeout, $scope, $http, $location) {
+  function ($scope, $route, $http, $location, $timeout) {
     
-    $scope.tabsConfig = {size: 5, index: 0};
+    $scope.os = $route.current.params.os;
+    
+    $scope.loading = true;
+    $timeout(function() {
+        $scope.loading =  false;
+    }, 2000);
+    
+    $scope.tabsConfig = { index: 0 };
     
     $scope.onSwipeLeft = function(ev) {
         $scope.tabsConfig.index = Math.min($scope.tabsConfig.index + 1, 4) ;

@@ -21,7 +21,7 @@ angular.module("app").config(function ($routeProvider, $httpProvider) {
        templateUrl: "views/chamados-mapa.html",
        controller: "chamadosMapaCtrl"
     });
-    $routeProvider.when("/chamado", {
+    $routeProvider.when("/chamado/:os", {
        templateUrl: "views/chamado.html",
        controller: "chamadoCtrl"
     });

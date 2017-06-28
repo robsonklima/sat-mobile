@@ -1,7 +1,7 @@
 app.controller("chamadosMapaCtrl", function ($scope, $rootScope, $cordovaGeolocation, geoLocationService, osService) {
     $scope.options = { scrollwheel: false };
     var posOptions = { timeout: 20000, enableHighAccuracy: true };
-    $scope.map = { center: { latitude: null, longitude: null }, fullscreenControl: false };
+    $scope.map = { center: { latitude: null, longitude: null } };
     $scope.loading = true;
     $scope.errors = [];
     
@@ -42,7 +42,8 @@ app.controller("chamadosMapaCtrl", function ($scope, $rootScope, $cordovaGeoloca
 					  latitude: $scope.places[key].latitude, 
 					  longitude: $scope.places[key].longitude, 
 					  title: 
-						$scope.places[key].os + "<br/>" 
+                        '<a href="#/chamado/' + $scope.places[key].os + '" style="text-decoration:none;">' 
+                            + $scope.places[key].os + '</a><br/>'
 						+ $scope.places[key].local + "<br/>" 
 						+ $scope.places[key].distance + ", " 
 						+ $scope.places[key].duration + "<br/>" 

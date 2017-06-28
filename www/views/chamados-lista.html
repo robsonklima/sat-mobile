@@ -1,6 +1,6 @@
 <div class="main-nav">
     <div class="left-child"><a href="#/home"><h5>Voltar</a></h5></div>
-    <div class="center-child"><h5>Lista de Chamados</h5></div>
+    <div class="center-child"><h5>Lista</h5></div>
 </div>
 
 <div class="separator"></div>
@@ -27,22 +27,24 @@
         <br/>
 
         <div class="list-group table-of-contents">
-            <a href="#/chamado" class="list-group-item" ng-repeat="order in orders">
+            <a class="list-group-item" ng-repeat="order in orders" href="#/chamado/{{ order.os }}">
                 <h4 class="list-group-item-heading">
-                    {{order.os}} 
-                    <span class="label" 
-                          ng-class="{ 'label-success' : order.sla_status == 'Dentro do Prazo', 
-                                      'label-danger' : order.sla_status == 'Fora do Prazo',
-                                      'label-warning' : order.sla_status == 'Próximo do Prazo' }">
-                        {{order.sla_status}}
-                    </span>
+                    <span class="order">{{ order.order }}. </span>{{ order.os }} 
                 </h4>
-                <p class="list-group-item-text">{{order.formattedAddress}}</p>
-                <p class="list-group-item-text">{{order.distance}} {{order.duration}}</p>
-                <p class="list-group-item-text">
-                    Intervenção: {{ order.intervencao }}, 
-                    Limite: {{order.sla_limite}}
-                </p>
+                
+                <span class="label " 
+                      ng-class="{ 'label-success' : order.sla_status == 'Dentro do Prazo', 
+                                  'label-danger' : order.sla_status == 'Fora do Prazo',
+                                  'label-warning' : order.sla_status == 'Próximo do Prazo' }">{{ order.sla_status }}</span>
+                <span class="label " 
+                      ng-class="{ 'label-success' : order.sla_status == 'Dentro do Prazo', 
+                                  'label-danger' : order.sla_status == 'Fora do Prazo',
+                                  'label-warning' : order.sla_status == 'Próximo do Prazo' }">{{ order.sla_limite | date:'dd/MM HH:mm' }}</span>
+                <span class="label label-primary">{{ order.distance }}</span>
+                <span class="label label-primary">{{ order.duration }}</span>
+                <span class="label label-info">{{ order.intervencao }}</span>
+                <span class="label label-default">{{ order.local }}</span>
+                <p class="list-group-item-text">{{ order.formattedAddress }}</p>
             </a>
         </div>
       </div>

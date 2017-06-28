@@ -1,6 +1,6 @@
 <div class="main-nav">
     <div class="left-child"><a href="#/chamados-lista"><h5>Voltar</h5></a></div>
-    <div class="center-child"><h5>5889541</h5></div>
+    <div class="center-child"><h5>{{ os }}</h5></div>
 </div>
 
 <div class="separator"></div>
@@ -9,8 +9,17 @@
 
    <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-        <div ng-cloak>
-          <md-content class="md-padding">
+          <div class="alert alert-danger" ng-show="errors.length > 0 && !loading">
+              <p ng-repeat="error in errors"><strong>Oops!</strong> {{error.details}}</p>
+          </div>
+
+          <div ng-show="loading" class="loading">
+              <div class="loading-content">
+                  <i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>
+                  <span class="sr-only">Loading...</span>
+              </div>
+          </div>
+          <md-content class="md-padding" ng-show="!loading">
             <md-tabs md-dynamic-height md-border-bottom md-selected="tabsConfig.index" md-swipe-left="onSwipeLeft()" md-swipe-right="onSwipeRight()">
               <md-tab id="tab1">
                 <md-tab-label><i class="fa fa-info-circle fa-2x fa-fw" aria-hidden="true"></i></md-tab-label>
@@ -28,7 +37,7 @@
                         <tbody>
                           <tr>
                             <td>OS</td>
-                            <td>5889541</td>
+                            <td>{{ os }}</td>
                           </tr>
                           <tr>
                             <td>OS Cliente</td>
@@ -86,9 +95,10 @@
                 <md-tab-label><i class="fa fa-pencil-square-o fa-2x fa-fw" aria-hidden="true"></i></md-tab-label>
                 <md-tab-body>
                   <div class="tab-title">
-                    <h5>Serviços</h5>
+                    <h5>Serviço</h5>
                   </div>
                   <form name="form">
+                       <br />
                        <div class="form-group">
                             <input class="form-control" type="text" placeholder="Número RAT">
                        </div>
@@ -114,10 +124,10 @@
                             <input class="form-control" type="text" placeholder="Relato padrão da solução">
                        </div>
                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Relato descritivo da solução"> <br />
+                            <input class="form-control" type="text" placeholder="Relato descritivo da solução">
                        </div>
                        <div class="btn-group btn-group-justified">
-                          <a href="#/home" type="button" class="btn btn-default">Salvar</a>
+                          <a href="#/home" type="button" class="btn btn-primary">Salvar</a>
                        </div>
                    </form>
                 </md-tab-body>
@@ -129,25 +139,25 @@
                     <h5>Ações</h5>
                   </div>
                   <a href="" class="list-group-item">
-                    <h5 class="list-group-item-heading">18300 - Fechadura Eletr.<span class="label label-danger">Excluir</span></h5>
+                    <h5 class="list-group-item-heading">18300 - Fechadura Eletr.<span class="label label-danger label-right">Excluir</span></h5>
                     <p class="list-group-item-text">046 - Sem Defeito</p>
                     <p class="list-group-item-text">068 - Orientação</p>
                     <p class="list-group-item-text">Nenhuma peça utilizada.</p>
                   </a>
                   <a href="" class="list-group-item">
-                      <h5 class="list-group-item-heading">04500 - Infra Estrutura<span class="label label-danger">Excluir</span></h5>
+                      <h5 class="list-group-item-heading">04500 - Infra Estrutura<span class="label label-danger label-right">Excluir</span></h5>
                       <p class="list-group-item-text">024 - Fora de Especificação</p>
                       <p class="list-group-item-text">053 - Atendimento Parcial</p>
                       <p class="list-group-item-text">Nenhuma peça utilizada.</p>
                   </a>
                   <a href="" class="list-group-item">
-                      <h5 class="list-group-item-heading">20400 - CPU<span class="label label-danger">Excluir</span></h5>
+                      <h5 class="list-group-item-heading">20400 - CPU<span class="label label-danger label-right">Excluir</span></h5>
                       <p class="list-group-item-text">022 - Falha de Comunicação</p>
                       <p class="list-group-item-text">069 - Pendência de Peças</p>
                       <p class="list-group-item-text">219.70.108: PLACA DE CONEXOES EXTERNAS SERIAL PARA ATM (FONTE EXTERNA LEADER)</p>
                   </a>
                   <a href="" class="list-group-item">
-                      <h5 class="list-group-item-heading">13450 - Teclado<span class="label label-danger">Excluir</span></h5>
+                      <h5 class="list-group-item-heading">13450 - Teclado<span class="label label-danger label-right">Excluir</span></h5>
                       <p class="list-group-item-text">022 - Falha de Comunicação</p>
                       <p class="list-group-item-text">053 - Atendimento Parcial</p>
                       <p class="list-group-item-text">Nenhuma peça utilizada.</p>
@@ -166,6 +176,7 @@
                   </div>
                   <form name="form">
                     <div class="form-group">
+                          <br/>
                           <label class="control-label">Tipo de Causa</label>
                           <div class="radio">
                             <label>
@@ -260,7 +271,7 @@
                       </div>
 
                       <div class="btn-group btn-group-justified">
-                        <a href="#/home" type="button" class="btn btn-default">Salvar</a>
+                        <a href="#/home" type="button" class="btn btn-primary">Salvar</a>
                       </div>
                 </md-tab-body>
               </md-tab>
@@ -277,9 +288,6 @@
               </md-tab>
             </md-tabs>
           </md-content>
-        </div>
-
-      </div>
+       </div>
    </div>
-
 </div>
