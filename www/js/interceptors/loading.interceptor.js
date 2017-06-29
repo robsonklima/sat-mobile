@@ -1,4 +1,4 @@
-angular.module("app").factory("loadingInterceptor", function($q, $timeout, $rootScope) {
+app.factory("loadingInterceptor", function($q, $timeout, $rootScope) {
    return {
        request: function(config) {
            $rootScope.loading = true;

@@ -1,6 +1,6 @@
 <div class="main-nav">
     <div class="left-child"><a href="#/home"><h5>Voltar</a></h5></div>
-    <div class="center-child"><h5>Lista</h5></div>
+    <div class="center-child"><h5>Incidentes</h5></div>
 </div>
 
 <div class="separator"></div>
@@ -26,16 +26,13 @@
           
         <br/>
 
-        <div class="list-group table-of-contents">
+        <div class="list-group table-of-contents" md-swipe-left="onSwipeLeft()">
             <a class="list-group-item" ng-repeat="order in orders" href="#/chamado/{{ order.os }}">
                 <h4 class="list-group-item-heading">
-                    <span class="order">{{ order.order }}. </span>{{ order.os }} 
+                    <span class="label label-default">{{ order.order }}</span> {{ order.os }} 
                 </h4>
-                
-                <span class="label " 
-                      ng-class="{ 'label-success' : order.sla_status == 'Dentro do Prazo', 
-                                  'label-danger' : order.sla_status == 'Fora do Prazo',
-                                  'label-warning' : order.sla_status == 'Próximo do Prazo' }">{{ order.sla_status }}</span>
+                <p class="list-group-item-text">{{ order.local }} <br /> {{ order.formattedAddress }}</p>
+                <span class="label label-primary">R{{ order.reincidencia }}</span>
                 <span class="label " 
                       ng-class="{ 'label-success' : order.sla_status == 'Dentro do Prazo', 
                                   'label-danger' : order.sla_status == 'Fora do Prazo',
@@ -43,8 +40,6 @@
                 <span class="label label-primary">{{ order.distance }}</span>
                 <span class="label label-primary">{{ order.duration }}</span>
                 <span class="label label-info">{{ order.intervencao }}</span>
-                <span class="label label-default">{{ order.local }}</span>
-                <p class="list-group-item-text">{{ order.formattedAddress }}</p>
             </a>
         </div>
       </div>

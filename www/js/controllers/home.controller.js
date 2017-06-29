@@ -1,6 +1,1 @@
-app.controller("homeCtrl", function($scope){
-    
-    // to do
-    
-});
-
+app.controller("homeCtrl", function($scope){ });

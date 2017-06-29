@@ -1,4 +1,4 @@
-angular.module("app").config(function ($routeProvider, $httpProvider) {
+app.config(function ($routeProvider, $httpProvider) {
 
     // avoid browser cash
     delete $httpProvider.defaults.headers.common['X-Requested-With'];

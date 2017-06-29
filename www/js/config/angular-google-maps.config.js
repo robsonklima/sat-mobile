@@ -1,7 +1,7 @@
-app.config(function(constants, uiGmapGoogleMapApiProvider) {
+app.config(function(uiGmapGoogleMapApiProvider, config) {
     uiGmapGoogleMapApiProvider.configure({
-        key: constants.googleKey,
-        v: '3.20',
+        key: config.googleKey,
+        v: '3.28',
         libraries: 'weather,geometry,visualization'
     });
 })

@@ -1,4 +1,4 @@
-angular.module("app").controller("chamadoCtrl",
+app.controller("chamadoCtrl",
   function ($scope, $route, $http, $location, $timeout) {
     
     $scope.os = $route.current.params.os;

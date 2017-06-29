@@ -1,8 +1,8 @@
-angular.module("app").factory("loginService", function($http, $rootScope, $cookieStore, base64Factory, constants) {
+app.factory("loginService", function($http, $rootScope, $cookieStore, base64Factory, config) {
 
     var _login = function(user) {
         return $http({
-           url: constants.apiUrl + 'users/me',
+           url: config.apiUrl + 'users/me',
            method: 'POST',
            data: user
         })

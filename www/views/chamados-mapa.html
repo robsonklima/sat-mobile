@@ -1,6 +1,6 @@
 <div class="main-nav">
     <div class="left-child"><a href="#/home"><h5>Voltar</a></h5></div>
-    <div class="center-child"><h5>Mapa</h5></div>
+    <div class="center-child"><h5>Incidentes</h5></div>
 </div>
 
 <div class="separator"></div>
@@ -25,7 +25,7 @@
             </div>
         </div>
         
-        <div id="map_canvas" ng-if="!loading && errors.length == 0">
+        <div id="map_canvas" ng-if="!loading && errors.length == 0" md-swipe-right="onSwipeRight()">
             <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" bounds="map.bounds">
                 <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="onMarkerClicked" options="'options'" events="markersEvents">
                     <ui-gmap-windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
